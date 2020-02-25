@@ -11,20 +11,35 @@
 local allowedTowModels = { 
     ['flatbed'] = {x = 0.0, y = -0.85, z = 1.25}, -- default GTA V flatbed
     ['flatbed2'] = {x = 0.0, y = 0.0, z = 0.68}, -- addon flatbed2
+	['flatbed'] = {x = 0.0, y = 0.0, z = 0.68}, -- addon flatbed2
     ['flatbed3'] = {x = 0.0, y = -1.2, z = 1.30}, -- addon flatbed3
+	['337flatbed'] = {x = 0.0, y = -1.2, z = 1.30}, -- addon 337
+	['benson'] = {x = 0.0, y = -0.65, z = 0.65}, -- Vapid Benson Boxtruck
+    ['biff'] = {x = 0.0, y = 0.15, z = 0.8}, -- HVY Biff Boxtruck / Flatbed
+	['mule'] = {x = 0.0, y = 0.575, z = 0.45}, -- Maibatsu Mule Boxtruck / Flatbed
+	['mule2'] = {x = 0.0, y = 0.66, z = 0.45}, -- Maibatsu Mule Boxtruck (Graphics)
+	['mule3'] = {x = 0.0, y = 0.66, z = 0.45}, -- Maibatsu Mule Boxtruck
+	['pounder'] = {x = 0.0, y = -1.5, z = 0.85}, -- MLT Pounder Boxtruck
+	['wastelander'] = {x = 0.0, y = 0.0, z = 1.4}, -- MLT Wastelander Flatbed
+	['trailers'] = {x = 0.0, y = 1.0, z = 0.45}, -- Fontaine Lowboy Trailer
+	['ct660'] = {x = 0.0, y = -0.5, z = 0.9}, -- Bagged's CAT CT660 Mixer/Flatbed/Semi
+	['durat'] = {x = 0.0, y = -2.5, z = 1}, -- addon durat
+	['tow2'] = {x = 0.0, y = -5.5, z = 0.7}, -- addon chevy
+	
+	
 }
 
 
-local allowTowingBoats = false -- Set to true if you want to be able to tow boats.
-local allowTowingPlanes = false -- Set to true if you want to be able to tow planes.
-local allowTowingHelicopters = false -- Set to true if you want to be able to tow helicopters.
-local allowTowingTrains = false -- Set to true if you want to be able to tow trains.
+local allowTowingBoats = true -- Set to true if you want to be able to tow boats.
+local allowTowingPlanes = true -- Set to true if you want to be able to tow planes.
+local allowTowingHelicopters = true -- Set to true if you want to be able to tow helicopters.
+local allowTowingTrains = true -- Set to true if you want to be able to tow trains.
 local allowTowingTrailers = true -- Disables trailers. NOTE: THIS ALSO DISABLES THE AIRTUG, TOWTRUCK, SADLER, AND ANY OTHER VEHICLE THAT IS IN THE UTILITY CLASS.
 
 local currentlyTowedVehicle = nil
 
-RegisterCommand("tow", function()
-	TriggerEvent("tow")
+RegisterCommand("repo", function()
+	TriggerEvent("repo")
 end,false)
 
 
@@ -55,8 +70,8 @@ function isVehicleATowTruck(vehicle)
     return isValid
 end
 
-RegisterNetEvent('tow')
-AddEventHandler('tow', function()
+RegisterNetEvent('repo')
+AddEventHandler('repo', function()
 	
 	local playerped = PlayerPedId()
 	local vehicle = GetVehiclePedIsIn(playerped, true)
